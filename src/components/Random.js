@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Spinner from './Spinner';
+import useGif from "../hooks/useGif";
+
 
 //const API_KEY = process.env.RANDOM_GIF_GENERATOR;
 const RANDOM_GIF_GENERATOR= "SwEUxCuwZAyHhKTkGy91dE98tbo32w1Z";
 
 
 function Random () {
- 
-  const [loading, setLoading] = useState(false);
-  const [gif, setGif] = useState('');
+  const {gif,loading,fetchData}=useGif('');
   
 
 
-  async function fetchData() {
-    setLoading(true)
-    const url = `https://api.giphy.com/v1/gifs/random?api_key=${RANDOM_GIF_GENERATOR}`;
+  // async function fetchData() {
+  //   setLoading(true)
+  //   const url = `https://api.giphy.com/v1/gifs/random?api_key=${RANDOM_GIF_GENERATOR}`;
 
-    const output = await axios.get(url);
-    console.log(output);
-    const imageSource=output.data.data.images.downsized_large.url;
-    setGif(imageSource);
-    console.log(imageSource);
-    setLoading(false);
-    // const imageSource = data.data.images.downsized_large.url;
-    // setGif(imageSource);
-    // console.log(imageSource);
-    // setLoading(false);
-  }
+  //   const output = await axios.get(url);
+  //   console.log(output);
+  //   const imageSource=output.data.data.images.downsized_large.url;
+  //   setGif(imageSource);
+  //   console.log(imageSource);
+  //   setLoading(false);
+  //   // const imageSource = data.data.images.downsized_large.url;
+  //   // setGif(imageSource);
+  //   // console.log(imageSource);
+  //   // setLoading(false);
+  // }
 
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   function clickHandeler()
   {
