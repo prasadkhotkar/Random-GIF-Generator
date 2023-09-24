@@ -27,7 +27,7 @@ function useGif (tag) {
     // console.log(imageSource);
     // setLoading(false);
   }
-
+ 
   useEffect(() => {
     fetchData();
   }, []);
